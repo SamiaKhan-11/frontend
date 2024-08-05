@@ -1,14 +1,12 @@
 'use client';
+import axios from 'axios';
 import { useFormik } from 'formik'
 import React from 'react'
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 
 const SignupSchema = Yup.object().shape({
-  username: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Name is Required'),
 
   email: Yup.string().email('Invalid email').required('Email is Required'),
 
@@ -27,13 +25,25 @@ const Login = () => {
 
   const LoginForm = useFormik({
     initialValues: {
-      username: '',
       email: '',
       password: ''
     },
 
     onSubmit: (values) => {
       console.log(values);
+
+      axios.post( 'http://localhost:5000/user/authenticate', values)
+      .then((response) => {
+        toast.success('Login Success');
+
+        localStorage.setItem('token' , response.data.token)
+
+        
+      }).catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.message);
+        
+      });
     },
 
     validationSchema: SignupSchema
@@ -265,7 +275,7 @@ const Login = () => {
           onSubmit={LoginForm.handleSubmit} >
           <p className="text-center text-lg font-medium">Login to your account</p>
 
-          <div>
+          {/* <div>
             <label htmlFor="username" className="sr-only">Username</label>
 
             <div className="relative"  >
@@ -297,7 +307,7 @@ const Login = () => {
                 <p className='text-xs text-red-600 mt-2'>{LoginForm.errors.username}</p>
               )
             }
-          </div>
+          </div> */}
 
           <div>
             <label htmlFor="email" className="sr-only">Email</label>

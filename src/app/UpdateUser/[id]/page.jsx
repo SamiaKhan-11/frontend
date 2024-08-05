@@ -38,8 +38,8 @@ const UpdateUser = () => {
 
 
   return (
-    <div className='max-w-[70%] mx-auto '>
-      <h1 className='text-center font-bold mt-5 text-3xl -mt-10 mb-4'>Update User</h1>
+    <div className='max-w-[70%] mx-auto -mt-20'>
+      <h1 className='text-center font-bold mt-5 text-3xl mb-4'>Update User</h1>
       {
         userData !== null ? (
           <Formik initialValues={userData} onSubmit={submitForm}>

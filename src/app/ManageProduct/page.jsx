@@ -40,7 +40,7 @@ const ManageProduct = () => {
   const displayproduct = () => {
     return (
 
-      <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700 mb-10">
         <thead className="bg-gray-200 dark:bg-neutral-800">
           <tr>
             <th scope="col" className="px-6 py-3 text-start">
@@ -71,7 +71,7 @@ const ManageProduct = () => {
                 </span>
               </div>
             </th>
-            <th   colspan={2}  scope="col" className="px-6 py-3 text-start">
+            <th colspan={2} scope="col" className="px-6 py-3 text-start">
               <div className="flex items-center gap-x-2">
                 <span className="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
                   {/* Status */}
@@ -90,13 +90,13 @@ const ManageProduct = () => {
                     <a className="block p-4" href="#">
                       <div className="flex items-center gap-x-4">
 
-                       <img
+                        <img
                           className="shrink-0 size-[38px] rounded-3xl w-12 "
                           src="https://i.pinimg.com/564x/98/6f/00/986f0030e53505927d45fde3c2115af3.jpg"
-                         
-                        /> 
 
-                        
+                        />
+
+
                         <div>
                           <span className="block text-sm font-semibold text-gray-400 dark:text-neutral-200">
                             {product.name}
@@ -138,7 +138,7 @@ const ManageProduct = () => {
                   </td>
 
                   <td className="size-px whitespace-nowrap align-top">
-                    <Link className="block p-6" href="/login">
+                    <Link className="block p-6" href={"/UpdateProduct/"+product._id} >
                       <button
                         className="py-2 px-4 inline-flex items-center gap-x-1 text-xs font-medium bg-teal-100 text-teal-800 rounded-full dark:bg-teal-500/10 dark:text-teal-500">
 
@@ -160,32 +160,14 @@ const ManageProduct = () => {
               )
             })
           }
-
-
-
         </tbody>
       </table>
 
     )
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
-    <div className='max-w-[80%] mx-auto'>
+    <div className='max-w-[80%] mx-auto -mt-10 '>
       <h1 className='text-3xl text-center font-bold mb-4'>Manage Products</h1>
       {displayproduct()}
     </div>

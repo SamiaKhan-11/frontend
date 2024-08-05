@@ -201,8 +201,8 @@ const ManageUser = () => {
   }
 
   return (
-    <div className='max-w-[80%] mx-auto'>
-      <h1 className='text-center font-bold text-3xl'>Manage User</h1>
+    <div className='max-w-[80%] mx-auto -mt-16'>
+      <h1 className='text-center font-bold text-3xl mb-4'>Manage User</h1>
       {displayusers()}
 
 
